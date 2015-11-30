@@ -13,7 +13,7 @@ my $SPIF_UPDATEANDSENDINI = 3;
 # Might need to mess with integer size and whether P translates to Pointer[void]
 sub SystemParametersInfo(int32, int32, Pointer[int32], int32)
 	returns int32
-	is native("user32")
+	is nativeconv("stdcall")
 	{ * }
 	
 sub SetWallpaper ($filename) is export {
@@ -22,3 +22,5 @@ sub SetWallpaper ($filename) is export {
 }
 
 SetWallpaper("E:/Wallpapers/1305281760696.jpg");
+
+#People trying to help on IRC: retupmoca, RabidGravy, Skarsnik, FROGGS
