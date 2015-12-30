@@ -11,10 +11,11 @@ my $SPI_SETDESKWALLPAPER  = 20;
 my $SPIF_UPDATEANDSENDINI = 3;
 
 # Might need to mess with integer size and whether P translates to Pointer[void]
-sub SystemParametersInfo(int32, int32, Pointer[int32], int32)
-	returns int32
-	is nativeconv("stdcall")
+sub SystemParametersInfo(Int, Int, Str, Int)
+	returns Int
+	is nativeconv("user32")
 	{ * }
+# Error: Type check failed for return value; expected 'Int' but got 'Whatever'
 	
 sub SetWallpaper ($filename) is export {
 	# TODO: check whether provided filename exists
@@ -24,3 +25,4 @@ sub SetWallpaper ($filename) is export {
 SetWallpaper("E:/Wallpapers/1305281760696.jpg");
 
 #People trying to help on IRC: retupmoca, RabidGravy, Skarsnik, FROGGS
+return 1;
